@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<!--
+    bootstrap 自带分页宏
+-->
+{% from "bootstrap/pagination.html" import render_pagination %}
+{% block header %}
+<header>
+    <div class="page-header">
+        <div class="container">
+            <h1>
+                Welcome
+                <img class="img-rounded img-circle" src="../static/doge1.jpg" />
+                <img class="img-rounded img-circle" src="../static/doge.gif" />
+                <img class="img-rounded img-circle" src="../static/doge2.gif" />
+
+
+            </h1>
+
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block page_body %}
+
+    <div class="page-body">
+        <div class="container">
+            <a href="{{ url_for('main.edit') }}" class="btn btn-primary">发表新文章</a>
+        </div>
+    </div>
+    <hr/>
+    <div class="container">
+        {% for post in posts %}
+            <h2><a href="{{ url_for('main.post', id=post.id) }}"> {{ post.title }}</a></h2>
+            <div>
+                {{ post.body_html |safe }}
+            </div>
+            <hr/>
+        {% endfor %}
+        {% if pagination %}
+            {{ render_pagination(pagination) }}
+        {% endif %}
+    </div>
+{% endblock %}

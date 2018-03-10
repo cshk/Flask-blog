@@ -1,0 +1,37 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block head %}
+    {{ super() }}
+    {% include 'includes/_head.html' %}
+
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+{% endblock %}
+
+{% block navbar %}
+    {% include 'includes/_navbar.html' %}
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        <header>
+            <div class="page-header">
+                <div class="container">
+                    <h1>{{ title }}</h1>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
+    {% block page_body %}
+    {% endblock %}
+
+{% endblock %}
+{% block footer %}
+    <footer>
+        &copy; 2018 by <a href="zz.com">zz</a>
+    </footer>
+{% endblock %}
