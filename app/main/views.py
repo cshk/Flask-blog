@@ -76,7 +76,7 @@ def edit(id=0):
 
     if 0 == id:
         #新增
-        post = Post(author=current_user)
+        post = Post(author.id=current_user.id)
     else:
         #修改
         post = Post.query.get_or_404(id)
